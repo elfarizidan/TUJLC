@@ -14,7 +14,7 @@ nav{
 .logo{
     width: 180px;   
 }
-nav ul li{
+nav ul li a{
     display: inline-block;
     list-style: none;
     margin: 5px 20px;
