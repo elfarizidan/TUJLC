@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="hero-text">
         <h1>Telkom University Jakarta Language Club</h1>
         <p>
-            Here we are gonna share culture each other
+            Share and dicuss to learn new languages
         </p>
         {/* <button className='btn' ><img src={dark_arrow}/></button> */}
       </div>

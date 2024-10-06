@@ -36,12 +36,11 @@ function Contact() {
     <div className='contact'>
       <div className="contact-col">
         <h3>Send us a message <img src={msg_icon} alt="" /></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae, 
-           eveniet distinctio optio suscipit soluta ipsum. 
-           Dignissimos eaque vero alias, repellat libero nesciunt unde.</p>
+        <p>Contact the contact below for new member registration and other information. 
+           You can also send a message in the form next to get more information.</p>
            <ul>
             <li><img src={mail_icon} alt="" />tujlc@gmail.com</li>
-            <li><img src={phone_icon} alt="" />+62 123456789</li>
+            <li><img src={phone_icon} alt="" />+62 852-2317-6656</li>
             <li><img src={location_icon} alt="" />Jl. Halimun Kampus B Telkom Jakarta<br/> no. 123, Jakarta Indonesia</li>
            </ul>
       </div>

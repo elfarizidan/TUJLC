@@ -12,13 +12,10 @@ const About = ({setPlayState}) => {
       </div>
       <div className="about-right">
         <h3>About Community</h3>
-        <h2>Learn Language Fun and Easy</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-           Corporis, dolorem blanditiis. 
-           Et doloribus, distinctio accusantium at explicabo exercitationem ipsam voluptates reiciendis eius laboriosam quasi iusto suscipit, 
-           iste vero vitae optio.</p>
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic tempore omnis voluptatum quisquam perferendis veniam sed aliquid, qui odio illum quos, ipsum excepturi deserunt laudantium soluta commodi amet, nostrum corrupti?</p>
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aspernatur repellat unde quas reprehenderit, modi magnam explicabo voluptatibus, magni nisi amet cupiditate maxime harum vel beatae autem? Adipisci, quibusdam iste.</p>
+        <h2>Learn Language Easy and Fun</h2>
+        <p>Here we learn and share knowledge about languages.</p>
+        <p>Meeting on Saturday</p>
+        <p>Learn all new languages</p>
 
       </div>
     </div>
