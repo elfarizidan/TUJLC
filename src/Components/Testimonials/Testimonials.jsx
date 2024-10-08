@@ -53,7 +53,7 @@ const sliderBackward = () =>{
                             <span>Deputy head of the community</span>
                         </div>
                     </div>
-                    <p>Belajar di UJLC mempermudah saya mengenali dan belajar bahasa asing 
+                    <p>Belajar di TUJLC mempermudah saya mengenali dan belajar bahasa asing 
                         dengan menyenangkan juga.</p>
                 </div>
             </li>
