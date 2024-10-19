@@ -41,11 +41,7 @@ const sliderBackward = () =>{
                             <span>Community relation</span>
                         </div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Animi temporibus nam vero beatae dolorem, voluptates doloribus enim rerum. 
-                        Tempora, voluptatem minima! Exercitationem neque, 
-                        reiciendis nisi id vel aliquid tempore.
-                        Nisi.</p>
+                    <p>Yeeay TUJLC menjadikan belajar bahasa mudah dan menyenangkan bukan!?</p>
                 </div>
             </li>
             <li>
@@ -57,11 +53,8 @@ const sliderBackward = () =>{
                             <span>Deputy head of the community</span>
                         </div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Animi temporibus nam vero beatae dolorem, voluptates doloribus enim rerum. 
-                        Tempora, voluptatem minima! Exercitationem neque, 
-                        reiciendis nisi id vel aliquid tempore.
-                        Nisi.</p>
+                    <p>Belajar di TUJLC mempermudah saya mengenali dan belajar bahasa asing 
+                        dengan menyenangkan juga.</p>
                 </div>
             </li>
             <li>
@@ -73,11 +66,9 @@ const sliderBackward = () =>{
                             <span>Logistic</span>
                         </div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Animi temporibus nam vero beatae dolorem, voluptates doloribus enim rerum. 
-                        Tempora, voluptatem minima! Exercitationem neque, 
-                        reiciendis nisi id vel aliquid tempore.
-                        Nisi.</p>
+                    <p>Dengan adanya TUJLC ini, saya jadi bisa belajar tentang budaya asing lebih
+                        banyak dan sharing pengetahuan seputar bahasa asing.
+                    </p>
                 </div>
             </li>
             <li>
@@ -89,11 +80,7 @@ const sliderBackward = () =>{
                             <span>Secretary</span>
                         </div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Animi temporibus nam vero beatae dolorem, voluptates doloribus enim rerum. 
-                        Tempora, voluptatem minima! Exercitationem neque, 
-                        reiciendis nisi id vel aliquid tempore.
-                        Nisi.</p>
+                    <p>Suka belajar bahasa baru? TUJLC solusinya!!</p>
                 </div>
             </li>
         </ul>
