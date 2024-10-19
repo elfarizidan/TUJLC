@@ -40,6 +40,10 @@
     width: 60px;
 }
 
+.caption .icon {
+    font-size: 40px;
+}
+
 .program:hover .caption {
     opacity: 1; 
     padding-top: 0;

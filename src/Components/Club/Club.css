@@ -1,35 +1,87 @@
-.campus{
+.campus {
     margin: 80px auto;
     width: 90%;
     text-align: center;
 }
-.gallery{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+.gallery {
+    display: flex; /* Use flexbox to arrange items in a row */
+    overflow-x: auto; /* Allow horizontal scrolling */
     margin-bottom: 40px;
+    width: 100%; /* Full width for the gallery */
+    justify-content: flex-end; /* Align items to the left */
+    grid-gap: 10px;
 }
-.gallery img{
-    width: 23%;
+
+.gallery-item {
+    flex: 0 0 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery img {
+    width: 100%;
     border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
 }
-.btn.dark-btn{
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn.dark-btn {
     background: #739fb9;
     color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
     transition: background 0.5s;
 }
-.btn.dark-btn:hover{
+
+.btn.dark-btn img {
+    margin-left: 10px;
+}
+
+.btn.dark-btn:hover {
     background: #cde7ee;
     color: #509ecb;
 }
 
 /* ========MEDIA QUERY========== */
-@media (max-width: 800px){
-    .gallery{
-        flex-wrap: wrap;
+@media (max-width: 800px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust grid layout for smaller screens */
     }
-    .gallery img{
-        width: 48%;
+
+    .gallery img {
+        width: 100%;
         margin-bottom: 25px;
     }
 }
