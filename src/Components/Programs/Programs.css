@@ -49,6 +49,12 @@
     padding-top: 0;
 }
 
+.awesome-font{
+    color: white;
+    font-size: 64px;
+    padding-bottom: 18px;
+}
+
 /* ===========MEDIA QUERY=========== */
 @media (max-width: 650px){
     .programs{

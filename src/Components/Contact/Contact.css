@@ -49,6 +49,17 @@
     display: block;
     margin: 20px 0;
 }
+.icon{
+    font-size: 28px;
+    padding-right: 7px;
+    vertical-align: middle;
+}
+.icon-main{
+    font-size: 28px;
+    padding-left: 12px;
+    padding-right: 7px;
+    vertical-align: middle;
+}
 
 /* ========MEDIA QUERY========== */
 @media (max-width: 700px){

@@ -22,7 +22,7 @@ const App = () => {
         <Title subTitle='Our Program' title='What we do'/>
         <Programs/>
         <About setPlayState={setPlayState}/>
-        <Title subTitle='Gallery' title='Our actifvities'/>
+        <Title subTitle='Gallery' title='Our activities'/>
         <Club/>
         <Title subTitle='Testimonials' title='What member says'/>   
         <Testimonials/>  

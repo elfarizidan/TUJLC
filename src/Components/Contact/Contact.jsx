@@ -1,13 +1,12 @@
-import React from 'react'
-import './Contact.css'
-import msg_icon from '../../assets/msg-icon.png'
-import mail_icon from '../../assets/mail-icon.png'
-import phone_icon from '../../assets/phone-icon.png'
-import location_icon from '../../assets/location-icon.png'
-import white_arrow from '../../assets/white-arrow.png'
+import React from 'react';
+import './Contact.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone, faMapMarkerAlt, faComments } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'; // Import WhatsApp icon
+import white_arrow from '../../assets/white-arrow.png';
 
 function Contact() {
-    const [result, setResult] = React.useState("");
+  const [result, setResult] = React.useState("");
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +17,7 @@ function Contact() {
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      body: formData
+      body: formData,
     });
 
     const data = await response.json();
@@ -31,33 +30,52 @@ function Contact() {
       setResult(data.message);
     }
   };
-  
-    return (
+
+  return (
     <div className='contact'>
       <div className="contact-col">
-        <h3>Send us a message <img src={msg_icon} alt="" /></h3>
-        <p>Contact the contact below for new member registration and other information. 
-           You can also send a message in the form next to get more information.</p>
-           <ul>
-            <li><img src={mail_icon} alt="" />tujlc@gmail.com</li>
-            <li><img src={phone_icon} alt="" />+62 852-2317-6656</li>
-            <li><img src={location_icon} alt="" />Jl. Halimun Kampus B Telkom Jakarta<br/> no. 123, Jakarta Indonesia</li>
-           </ul>
+        <h3>
+          Send us a message <FontAwesomeIcon icon={faComments} className="icon-main" />
+        </h3>
+        <p>
+          Contact the contact below for new member registration and other information. 
+          You can also send a message in the form next to get more information.
+        </p>
+        <ul>
+          <li>
+            <FontAwesomeIcon icon={faEnvelope} className="icon" />
+            tujlanguagclub@gmail.com
+          </li>
+          <li>
+            <a href="https://wa.me/6285223176656?text=I%20want%20more%20information%20about%20TUJLC%20next%20events" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faWhatsapp} className="icon" />
+              Public Relations Coordinator
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/tujlanguageclub" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faInstagram} className="icon" />
+              @tujlanguageclub
+            </a>
+          </li>
+        </ul>
       </div>
       <div className="contact-col">
         <form onSubmit={onSubmit}>
-            <label>Your Name</label>
-            <input type="text" name='name' placeholder='Enter your name' required/>
-            <label>Phone number</label>
-            <input type="tel" name='phone' placeholder='Enter your mobile number' required/>
-            <label>Write your message here</label>
-            <textarea name="message" rows="6" placeholder='Enter your messsage' required></textarea>
-            <button type='submit' className='btn dark-btn'>Submit Now <img src={white_arrow} alt="" /></button>
+          <label>Your Name</label>
+          <input type="text" name='name' placeholder='Enter your name' required />
+          <label>Phone number</label>
+          <input type="tel" name='phone' placeholder='Enter your mobile number' required />
+          <label>Write your message here</label>
+          <textarea name="message" rows="6" placeholder='Enter your message' required></textarea>
+          <button type='submit' className='btn dark-btn'>
+            Submit Now <img src={white_arrow} alt="" />
+          </button>
         </form>
         <span>{result}</span>
       </div>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
