@@ -53,9 +53,9 @@ function Contact() {
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/tujlanguageclub" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/languageclub.tukj?igsh=MXhzOGVyd3hxeHd4cg==" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faInstagram} className="icon" />
-              @tujlanguageclub
+              @languageclub.tukj
             </a>
           </li>
         </ul>
