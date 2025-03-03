@@ -43,8 +43,10 @@ function Contact() {
         </p>
         <ul>
           <li>
+            <a href="mailto:tujlanguageclub@gmail.com">
             <FontAwesomeIcon icon={faEnvelope} className="icon" />
-            tujlanguagclub@gmail.com
+            tujlanguageclub@gmail.com
+            </a>
           </li>
           <li>
             <a href="https://wa.me/6285223176656?text=I%20want%20more%20information%20about%20TUJLC%20next%20events" target="_blank" rel="noopener noreferrer">
