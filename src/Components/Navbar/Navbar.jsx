@@ -20,7 +20,7 @@ const Navbar = () => {
   }
   return (
     <nav className={`container ${sticky? 'dark-nav' : ''}`}>
-      <img src={logo} alt="" className='logo'/>
+      <a><img src={logo} alt="" className='logo'/></a>
       <ul className={MobileMenu? '':'hide-mobile-menu'}>
         <li><Link to='hero' smooth={true} offset={0} duration={500}>Home</Link></li>
         <li><Link to='program' smooth={true} offset={-260} duration={500}>Program</Link></li>
