@@ -20,9 +20,9 @@ const Navbar = () => {
   }
   return (
     <nav className={`container ${sticky? 'dark-nav' : ''}`}>
-      <a><Link to='hero' smooth={true} duration={500}><img src={logo} alt="" className='logo'/></Link></a>
+      <a><Link to='hero' smooth={true} offset={0} duration={500}><img src={logo} alt="" className='logo'/></Link></a>
       <ul className={MobileMenu? '':'hide-mobile-menu'}>
-        <li><Link to='hero' smooth={true} offset={0} duration={500}>Home</Link></li>
+{/*         <li><Link to='hero' smooth={true} offset={0} duration={500}>Home</Link></li> */}
         <li><Link to='program' smooth={true} offset={-260} duration={500}>Program</Link></li>
         <li><Link to='about' smooth={true} offset={-150} duration={500}>About us</Link></li>
         <li><Link to='club' smooth={true} offset={-200} duration={500}>TUJLC</Link></li>
