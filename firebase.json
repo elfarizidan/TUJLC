@@ -7,6 +7,8 @@
       "CNAME",
       "tools/**",
       "data/**",
+      "assets/pengurus/**",
+      "assets/anggota/**",
       "uploads/**",
       "**/.*",
       "**/node_modules/**"
