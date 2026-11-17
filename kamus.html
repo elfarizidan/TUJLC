@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kamus TUJLC</title>
+<meta name="description" content="Kamus lima bahasa TUJLC: Inggris, Jepang, Mandarin, Prancis, dan Arab, dengan arti Indonesia, level, dan suara.">
+<meta name="theme-color" content="#274045">
+<link rel="icon" href="assets/logo-outline.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261108d">
+<link rel="stylesheet" href="components.css?v=20261108d">
+<link rel="stylesheet" href="akademi.css?v=20261108d">
+<link rel="stylesheet" href="kamus.css?v=20261108d">
+</head>
+<body data-page="anggota">
+<main id="main">
+  <section class="ak-hero km-hero">
+    <div>
+      <p class="eyebrow"><a href="belajar.html" style="color:inherit">Akademi ELCY</a> · Kamus</p>
+      <h1 class="display display--lg">Kamus TUJLC</h1>
+      <p class="lead">Ratusan ribu entri dari JMdict, CC-CEDICT, Wiktionary, dan WordNet. Cari dalam huruf asli, romaji/pinyin, bahasa Inggris, atau bahasa Indonesia.</p>
+    </div>
+    <div class="km-today" id="kmToday"></div>
+  </section>
+
+  <nav class="ak-langs" id="kmLangs" aria-label="Pilih bahasa"></nav>
+
+  <section class="km-wrap">
+    <form class="km-search" id="kmForm" role="search">
+      <label class="sr" for="kmQ">Cari kata</label>
+      <input id="kmQ" type="search" autocomplete="off" placeholder="Ketik kata… contoh: makan, eat, たべる, chi, أكل" autofocus>
+      <select id="kmLv" aria-label="Saring level"><option value="">Semua level</option></select>
+      <select id="kmPos" aria-label="Saring kelas kata"><option value="">Semua kelas kata</option></select>
+    </form>
+    <div class="km-bar">
+      <p id="kmInfo" class="muted" aria-live="polite">Memuat kamus…</p>
+      <div class="km-bar__btns">
+        <button class="chip" id="kmFull" hidden>Muat kamus lengkap</button>
+        <button class="chip" id="kmSavedBtn">Kata simpananku (<span id="kmSavedN">0</span>)</button>
+      </div>
+    </div>
+    <div class="km-list" id="kmList"></div>
+    <button class="btn btn--ghost-ink km-more" id="kmMore" hidden>Tampilkan lebih banyak</button>
+
+    <section class="km-saved" id="kmSaved" hidden>
+      <div class="section__head"><h2 class="display display--sm">Kata simpananku</h2><p class="muted">Tersimpan di browser ini. Latih dengan kartu bolak-balik.</p></div>
+      <div class="flash" id="kmFlash"></div>
+      <div class="km-list" id="kmSavedList"></div>
+    </section>
+
+    <details class="km-src">
+      <summary>Sumber data & lisensi</summary>
+      <ul>
+        <li><b>Jepang:</b> JMdict (Electronic Dictionary Research and Development Group), CC BY-SA 4.0, lewat jmdict-simplified.</li>
+        <li><b>Mandarin:</b> CC-CEDICT (MDBG), CC BY-SA 4.0. Level HSK dari complete-hsk-vocabulary (drkameleon), MIT. “HSK n” = HSK 3.0, “(lama)” = HSK 2.0.</li>
+        <li><b>Prancis & Arab:</b> Wiktionary (en.wiktionary.org) lewat kaikki.org, CC BY-SA 4.0 & GFDL.</li>
+        <li><b>Inggris:</b> Open English WordNet, CC BY 4.0.</li>
+        <li><b>Arti Indonesia:</b> dibalik otomatis dari kamus Indonesia di Wiktionary (kaikki.org), CC BY-SA 4.0. Ditandai ≈ karena bisa kurang tepat; selalu cek arti Inggrisnya.</li>
+        <li><b>Level A1–C2 (Inggris, Prancis, Arab):</b> perkiraan dari peringkat frekuensi FrequencyWords (Hermit Dave, OpenSubtitles 2018), CC BY-SA 4.0. Bukan level CEFR resmi.</li>
+      </ul>
+      <p class="muted small">Data kamus di halaman ini dibagikan ulang dengan lisensi CC BY-SA 4.0.</p>
+    </details>
+  </section>
+</main>
+<script src="data.js?v=20261108d" defer></script>
+<script src="audio.js?v=20261108d" defer></script>
+<script src="common.js?v=20261108d" defer></script>
+<script src="kamus.js?v=20261108d" defer></script>
+</body>
+</html>

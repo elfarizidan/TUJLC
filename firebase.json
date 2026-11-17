@@ -1,16 +1,16 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": ".",
     "ignore": [
       "firebase.json",
+      "README.md",
+      "CNAME",
+      "tools/**",
+      "data/**",
+      "uploads/**",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "cleanUrls": false
   }
 }

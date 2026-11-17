@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Keliling Dunia ELCY · TUJLC</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#274045">
+<link rel="icon" href="assets/logo-outline.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261108q">
+<link rel="stylesheet" href="components.css?v=20261108q">
+<link rel="stylesheet" href="dunia.css?v=20261108q">
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+</head>
+<body data-page="anggota" class="dunia-page">
+<main id="main">
+  <div id="world" class="world" aria-label="Dunia 3D"></div>
+
+  <div class="hud" id="hud" hidden>
+    <div class="hud__city"><span id="hCity"></span><small id="hProg"></small></div>
+    <div class="hud__btns">
+      <button class="hbtn" id="bRide">🚶 Turun (F)</button>
+      <button class="hbtn" id="bCityMap">📍 Peta kota (M)</button>
+      <button class="hbtn" id="bMap">🌍 Peta dunia</button>
+      <button class="hbtn" id="bHelp" aria-label="Cara main">?</button>
+      <a class="hbtn" href="arena.html">Keluar</a>
+    </div>
+  </div>
+  <p class="osm" id="osm" hidden>Peta © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>
+  <div class="mini" id="mini" hidden><canvas id="miniCv" width="160" height="160" aria-label="Peta kecil"></canvas></div>
+  <button class="talk" id="talk" hidden></button>
+  <div class="way" id="way" hidden><span id="wayArr" aria-hidden="true">▲</span><b id="wayTxt"></b></div>
+  <p class="toast" id="toast" hidden role="status"></p>
+  <section class="bigmap" id="bigMap" hidden>
+    <div class="bigmap__in">
+      <div class="dlg3__head"><h2>Peta <span id="bmCity"></span></h2><button class="hbtn" id="bmX" aria-label="Tutup peta">×</button></div>
+      <canvas id="bmCv" width="900" height="900" aria-label="Peta kota"></canvas>
+      <p class="muted small">Klik titik di peta atau nama tempat di bawah untuk memasang penunjuk arah.</p>
+      <div class="bigmap__list" id="bmList"></div>
+    </div>
+  </section>
+  <div class="joy" id="joy" hidden><div class="joy__knob" id="joyKnob"></div></div>
+  <p class="hint" id="hint" hidden>WASD melaju · seret layar putar kamera · <b>E</b> bicara · <b>F</b> turun/naik skuter · <b>M</b> peta</p>
+
+  <section class="panel" id="mapPanel">
+    <div class="panel__in">
+      <img src="assets/elcy-motoran.webp" alt="" class="panel__elcy">
+      <p class="eyebrow">Area anggota · Arena Game</p>
+      <h1 class="display display--md">Keliling Dunia ELCY</h1>
+      <p class="lead">Naik skuter ELCY keliling lima kota sungguhan: jalan, gedung, sungai, dan landmark dibuat dari peta asli. Ajak ngobrol enam warga di tiap kota pakai bahasa mereka. Kumpulkan cap paspor!</p>
+      <div class="cities" id="cities"></div>
+      <p class="muted small">Progres disimpan di perangkat ini. Skor tiap kota yang selesai masuk papan peringkat Arena.</p>
+    </div>
+  </section>
+
+  <section class="dlg3" id="dlg" hidden aria-live="polite"></section>
+  <div class="fly" id="fly" hidden><div><img src="assets/elcy-motoran.webp" alt=""><p id="flyTxt"></p></div></div>
+</main>
+<script src="data.js?v=20261108q" defer></script>
+<script src="audio.js?v=20261108q" defer></script>
+<script src="akademi-data.js?v=20261108q" defer></script>
+<script src="dunia-data.js?v=20261108q" defer></script>
+<script src="common.js?v=20261108q" defer></script>
+<script type="module" src="dunia.js?v=20261108r"></script>
+</body>
+</html>

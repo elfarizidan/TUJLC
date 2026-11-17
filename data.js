@@ -1,0 +1,242 @@
+// Data TUJLC. Semua fakta diambil dari folder Drive Media Creative & Documentation.
+// Tambah event baru: salin satu objek di EVENTS, isi, lalu taruh fotonya di assets/events/<slug>/.
+
+window.LANGS = {
+  en: {
+    name: "Inggris", native: "English", color: "sky", hello: "Hello!", speech: "en-US",
+    elcy: "elcy-podcast",
+    tagline: "Dari kenalan sampai siap EPRT.",
+    intro: "Kelas Inggris paling sering jalan di TUJLC. Banyak anggota butuh skor EPRT untuk syarat kampus, jadi kami gabungkan dua hal: latihan ngobrol supaya berani bicara, dan latihan soal supaya siap tes.",
+    method: [
+      ["Dibagi dua level", "Waktu EPRT Preparation, peserta dipisah ke Beginner Class dan Advance Class supaya materinya pas."],
+      ["Materi dari kehidupan nyata", "Pertemuan 22 Februari 2025 memakai formulir lamaran kerja (job application form) sungguhan sebagai bahan latihan."],
+      ["Maju ke depan", "Tiap kelompok presentasi singkat. Salah grammar itu biasa, yang penting kalimatnya keluar."],
+    ],
+    lessonTitle: "Kenali format EPRT",
+    lesson: "EPRT (English Proficiency Test) adalah tes bahasa Inggris Telkom University. Formatnya mirip TOEFL ITP dengan tiga bagian: Listening, Structure & Written Expression, dan Reading. Cara paling cepat naik skor: biasakan dengar percakapan pendek, hafalkan pola grammar yang sering keluar, dan latihan membaca dengan batas waktu.",
+    script: null,
+    phrases: [
+      ["Nice to meet you.", "", "Senang bertemu denganmu."],
+      ["Could you say that again, please?", "", "Bisa diulang?"],
+      ["I'm applying for the position of…", "", "Saya melamar untuk posisi…"],
+      ["What does this word mean?", "", "Kata ini artinya apa?"],
+      ["I'm not sure, but I think…", "", "Saya kurang yakin, tapi menurut saya…"],
+      ["See you next Saturday!", "", "Sampai jumpa Sabtu depan!"],
+    ],
+    tip: "Kalau bingung grammar saat bicara, pakai kalimat pendek. “I think it's good” lebih baik daripada diam karena menyusun kalimat panjang.",
+  },
+  ja: {
+    name: "Jepang", native: "日本語", color: "red", hello: "こんにちは", speech: "ja-JP",
+    elcy: "elcy-picture",
+    tagline: "Tiga huruf, satu kedutaan.",
+    intro: "Kelas Jepang mulai dari hiragana, lalu ungkapan sehari-hari. Puncaknya periode lalu: kunjungan ke Kedutaan Besar Jepang pada 17 Juni 2025.",
+    method: [
+      ["Mulai dari hiragana", "Huruf ditulis di papan, dibaca bareng, lalu dipakai untuk menulis nama sendiri."],
+      ["Ungkapan sebelum grammar", "Salam, terima kasih, dan minta maaf dulu. Pola kalimat menyusul setelah peserta berani bicara."],
+      ["Budaya langsung dari sumbernya", "Di Kedubes Jepang, anggota ikut presentasi budaya dan mencoba kipas serta kain tradisional."],
+    ],
+    lessonTitle: "Tiga sistem tulisan",
+    lesson: "Bahasa Jepang memakai tiga jenis huruf. Hiragana (46 huruf dasar) untuk kata asli Jepang dan akhiran kata. Katakana (46 huruf) untuk kata serapan seperti コーヒー (kōhī, kopi). Kanji adalah huruf dari Tiongkok yang mewakili makna, misalnya 日 (hari/matahari). Pemula cukup kuasai hiragana dulu.",
+    script: { label: "Lima vokal hiragana", items: [["あ", "a"], ["い", "i"], ["う", "u"], ["え", "e"], ["お", "o"]] },
+    phrases: [
+      ["はじめまして", "hajimemashite", "Senang berkenalan."],
+      ["よろしくおねがいします", "yoroshiku onegaishimasu", "Mohon bantuannya."],
+      ["ありがとうございます", "arigatō gozaimasu", "Terima kasih banyak."],
+      ["すみません", "sumimasen", "Permisi / maaf."],
+      ["わかりません", "wakarimasen", "Saya tidak mengerti."],
+      ["おやすみなさい", "oyasumi nasai", "Selamat tidur."],
+    ],
+    tip: "Vokal Jepang dibaca persis seperti vokal bahasa Indonesia. Itu modal besar: pelafalan kita sudah setengah jalan.",
+  },
+  zh: {
+    name: "Mandarin", native: "中文", color: "yellow", hello: "你好", speech: "zh-CN",
+    elcy: "elcy-mbem",
+    tagline: "Satu suku kata, empat nada.",
+    intro: "Mandarin muncul di tiga pertemuan: 16 November dan 7 Desember 2024, lalu 3 Mei 2025. Fokusnya pinyin, nada, dan kosakata benda di sekitar kita.",
+    method: [
+      ["Pinyin dulu", "Semua kosakata ditulis dengan pinyin dan tanda nada sebelum hanzi."],
+      ["Tulis di papan, bergantian", "Peserta maju menulis hanzi dan pinyin, lalu yang lain mengoreksi bareng."],
+      ["Tema “Name of Object”", "Pertemuan 3 Mei 2025 membahas nama benda di kelas dan cara bertanya “ini apa?”."],
+    ],
+    lessonTitle: "Pinyin dan empat nada",
+    lesson: "Pinyin adalah cara menulis bunyi Mandarin dengan huruf Latin. Setiap suku kata punya nada, dan nada mengubah arti. Contoh klasik: mā (妈, ibu), má (麻, rami), mǎ (马, kuda), mà (骂, memarahi). Ada juga nada netral yang pendek dan ringan, seperti suku kedua di xièxie.",
+    script: { label: "Empat nada", items: [["mā", "datar tinggi", "妈"], ["má", "naik", "麻"], ["mǎ", "turun-naik", "马"], ["mà", "turun tajam", "骂"]] },
+    phrases: [
+      ["你好", "nǐ hǎo", "Halo."],
+      ["我叫…", "wǒ jiào…", "Nama saya…"],
+      ["这是什么？", "zhè shì shénme?", "Ini apa?"],
+      ["谢谢", "xièxie", "Terima kasih."],
+      ["不客气", "bú kèqi", "Sama-sama."],
+      ["再见", "zàijiàn", "Sampai jumpa."],
+    ],
+    tip: "Gerakkan tangan mengikuti nada saat latihan: datar, naik, turun-naik, turun. Kedengarannya konyol, tapi cepat nempel.",
+  },
+  fr: {
+    name: "Prancis", native: "Français", color: "teal", hello: "Bonjour", speech: "fr-FR",
+    elcy: "elcy-raincoat",
+    tagline: "Belajar langsung dari penutur asli.",
+    intro: "Kelas Prancis dibuka 23 November 2024. Pada 8 Maret 2025, Monsieur Baptiste, penutur asli bahasa Prancis, datang ke pertemuan edisi Meet and Greet dan mengobrol langsung dengan anggota.",
+    method: [
+      ["Slide dan papan tulis", "Materi ditampilkan di layar, lalu kosakata baru ditulis ulang di papan."],
+      ["Tamu penutur asli", "Monsieur Baptiste duduk bersama anggota, jadi semua orang bisa bertanya dan mendengar pelafalan aslinya."],
+      ["Salam dulu, grammar kemudian", "Kenalan dan sapaan sopan jadi bekal pertama sebelum masuk kata kerja."],
+    ],
+    lessonTitle: "Banyak huruf, sedikit bunyi",
+    lesson: "Bahasa Prancis sering tidak membaca huruf terakhir kata. “Paris” dibaca pa-ri, “beaucoup” dibaca bo-ku. Huruf r dibunyikan dari tenggorokan. Kalau kata berakhiran konsonan bertemu kata berawalan vokal, keduanya sering disambung (liaison): “vous avez” dibaca vu-za-ve.",
+    script: { label: "Huruf akhir yang diam", items: [["Paris", "pa-ri"], ["beaucoup", "bo-ku"], ["salut", "sa-lu"], ["trois", "trwa"]] },
+    phrases: [
+      ["Bonjour !", "bon-zhur", "Halo / selamat pagi."],
+      ["Je m'appelle…", "zhe ma-pel", "Nama saya…"],
+      ["Enchanté(e)", "ang-shang-te", "Senang berkenalan."],
+      ["Merci beaucoup", "mer-si bo-ku", "Terima kasih banyak."],
+      ["Je ne comprends pas", "zhe ne kom-prang pa", "Saya tidak mengerti."],
+      ["À samedi !", "a sam-di", "Sampai Sabtu!"],
+    ],
+    tip: "Bunyi “an/on” di Prancis keluar lewat hidung. Coba ucapkan “bong” tanpa menutup huruf g.",
+  },
+  ar: {
+    name: "Arab", native: "العربية", color: "green", hello: "مرحبا", speech: "ar-SA",
+    elcy: "elcy-window",
+    tagline: "Dibaca dari kanan, dimulai dari “saya”.",
+    intro: "Kelas Arab berjalan 7 Desember 2024 dan 10 Mei 2025. Papan tulis penuh kata ganti orang, dari أنا (saya) sampai نحن (kami), karena dari situ semua kalimat dasar dibangun.",
+    method: [
+      ["Kata ganti di papan", "Mentor menulis tabel kata ganti, peserta membaca dan menebak artinya."],
+      ["Dari kata ke kalimat", "Setelah kata ganti, peserta menyusun kalimat pendek seperti أنا طالب (saya mahasiswa)."],
+      ["Banyak tanya", "Kelas kecil, jadi semua orang sempat bertanya soal huruf yang mirip-mirip."],
+    ],
+    lessonTitle: "28 huruf, kanan ke kiri",
+    lesson: "Huruf Arab ada 28, ditulis dari kanan ke kiri, dan bentuknya berubah sesuai posisi di awal, tengah, atau akhir kata. Huruf vokal pendek ditandai harakat (fathah, kasrah, dammah) di atas atau di bawah huruf. Banyak kata Arab sudah kita kenal dari bahasa Indonesia: kitab, ilmu, waktu.",
+    script: { label: "Kata ganti orang", items: [["أنا", "ana · saya"], ["أنتَ", "anta · kamu (lk)"], ["أنتِ", "anti · kamu (pr)"], ["هو", "huwa · dia (lk)"], ["هي", "hiya · dia (pr)"], ["نحن", "nahnu · kami"]] },
+    phrases: [
+      ["السلام عليكم", "assalāmu ʿalaikum", "Semoga keselamatan untukmu."],
+      ["مرحبا", "marḥaban", "Halo."],
+      ["أنا طالب", "ana ṭālib", "Saya mahasiswa (lk)."],
+      ["ما اسمك؟", "mā ismuka?", "Siapa namamu?"],
+      ["شكرا", "syukran", "Terima kasih."],
+      ["إلى اللقاء", "ilal-liqā'", "Sampai jumpa."],
+    ],
+    tip: "Bedakan ح (ha dari tengah tenggorokan) dan ه (ha ringan). Taruh tangan di leher, ح terasa bergetar lebih dalam.",
+  },
+};
+
+window.EVENTS = [
+  {
+    slug: "eprt", title: "EPRT Preparation", date: "5 & 12 Oktober 2024", iso: "2024-10-05",
+    kind: "Pertemuan 1–2", langs: ["en"], cover: "eprt/post-01",
+    summary: "Dua hari persiapan tes EPRT, dibagi kelas Beginner dan Advance.",
+    body: [
+      "Periode 2024/2025 dibuka dengan kebutuhan paling nyata: EPRT. Banyak anggota perlu skor ini untuk syarat kampus, jadi dua Sabtu pertama dipakai untuk latihan soal.",
+      "Peserta dibagi ke Beginner Class dan Advance Class. Mentor membahas soal di layar, lalu istirahat makan siang bareng sebelum lanjut hari kedua.",
+    ],
+    sets: [["post", "Poster dokumentasi"]], album: "1AotEiL6DmP41CoC8RGDsHkxY79h_oK64",
+  },
+  {
+    slug: "meet-04", title: "Kelas Inggris & Mandarin", date: "16 November 2024", iso: "2024-11-16",
+    kind: "Pertemuan 4", langs: ["en", "zh"], cover: "meet-04/en-08",
+    summary: "Dua kelas jalan bersamaan: diskusi Inggris dan pengenalan Mandarin.",
+    body: [
+      "Pertama kalinya dua kelas bahasa berjalan di hari yang sama. Anggota memilih ruangan sesuai bahasa yang mau dipelajari.",
+      "Kelas Inggris diisi diskusi kelompok dan presentasi di depan layar. Kelas Mandarin memakai layar untuk materi, lalu peserta bergantian maju menulis di papan.",
+    ],
+    sets: [["en", "Kelas Inggris"], ["zh", "Kelas Mandarin"], ["post", "Poster"]], album: "1U57Ek4GXPteF7UdZEkugAeVWBsYBWL8f",
+  },
+  {
+    slug: "meet-05", title: "Kelas Prancis & Jepang", date: "23 November 2024", iso: "2024-11-23",
+    kind: "Pertemuan 5", langs: ["fr", "ja"], cover: "meet-05/fr-03",
+    summary: "Debut kelas Prancis, dan hiragana pertama di kelas Jepang.",
+    body: [
+      "Kelas Prancis dibuka untuk pertama kali, dengan materi di slide dan kosakata di papan tulis. Di ruangan sebelah, kelas Jepang menulis hiragana di papan dan membacanya bareng.",
+      "Ungkapan penutup minggu itu: おやすみなさい, selamat tidur. Jadi meme di Instagram TUJLC.",
+    ],
+    sets: [["fr", "Kelas Prancis"], ["ja", "Kelas Jepang"], ["post", "Poster"]], album: "1AaHYguw0O8ZsvjEtvWZ-3VMmfn_0o2HP",
+  },
+  {
+    slug: "meet-06", title: "Kelas Arab & Mandarin", date: "7 Desember 2024", iso: "2024-12-07",
+    kind: "Pertemuan 6", langs: ["ar", "zh"], cover: "meet-06/zh-06",
+    summary: "Kelas Arab perdana dan Mandarin putaran kedua, sesi terakhir sebelum libur.",
+    body: [
+      "Sabtu terakhir sebelum libur semester. Kelas Arab dibuka untuk pertama kali, langsung praktik menulis di papan.",
+      "Di kelas Mandarin, giliran peserta yang maju menulis hanzi dan pinyin di papan, lalu dikoreksi bareng.",
+    ],
+    sets: [["ar", "Kelas Arab"], ["zh", "Kelas Mandarin"], ["post", "Poster"]], album: "1e5osBqy50QOlveDq5Wfkd-aKC107I1yF",
+  },
+  {
+    slug: "meet-07", title: "Kelas Inggris & Jepang", date: "22 Februari 2025", iso: "2025-02-22",
+    kind: "Pertemuan 7", langs: ["en", "ja"], cover: "meet-07/en-04",
+    summary: "Balik dari libur dengan latihan mengisi formulir lamaran kerja dalam bahasa Inggris.",
+    body: [
+      "Semester genap dibuka dengan materi yang langsung kepakai: formulir lamaran kerja berbahasa Inggris. Peserta belajar mengisi data diri, pengalaman, dan posisi yang dilamar.",
+      "Kelas Jepang lanjut dengan presentasi dari mentor dan latihan membaca bersama.",
+    ],
+    sets: [["en", "Kelas Inggris"], ["ja", "Kelas Jepang"], ["doc", "Suasana"], ["post", "Poster"]], album: "1tzq7Ucp8a1qw9DZ0RD1qkdsVRxFU_7Zm",
+  },
+  {
+    slug: "photo-session", title: "Sesi Foto Merchandise ELCY", date: "1 Maret 2025", iso: "2025-03-01",
+    kind: "Media Creative", langs: [], cover: "photo-session/gen-05",
+    summary: "Tim Media Creative memotret stiker, lanyard, dan gantungan kunci ELCY.",
+    body: [
+      "Sebelum ELCY Shop buka, tim Media Creative mengadakan sesi foto produk. Stiker, lanyard, pin, dan gantungan kunci ELCY difoto satu per satu untuk katalog dan feed Instagram.",
+    ],
+    sets: [["gen", "Foto produk"]], album: "1ttRBjN0f92qt6zivReDvQRCxPJxPwgEh",
+  },
+  {
+    slug: "meet-08", title: "Meet and Greet: Monsieur Baptiste", date: "8 Maret 2025", iso: "2025-03-08",
+    kind: "Pertemuan 8", langs: ["fr"], cover: "meet-08/gen-03", star: true,
+    summary: "Penutur asli bahasa Prancis datang dan mengobrol langsung dengan anggota.",
+    body: [
+      "Edisi Meet and Greet. Monsieur Baptiste, penutur asli bahasa Prancis, duduk bersama anggota di kelas dan mengobrol langsung. Kesempatan langka untuk mendengar bahasa Prancis dari penutur aslinya.",
+      "Pertemuan ditutup dengan foto bersama dan bendera TUJLC.",
+    ],
+    sets: [["gen", "Dokumentasi"], ["post", "Poster"]], album: "1QDXhlFggav12zAyN8E0T9Je-Dd5OV0n4",
+  },
+  {
+    slug: "meet-09", title: "Mandarin: Name of Object", date: "3 Mei 2025", iso: "2025-05-03",
+    kind: "Pertemuan 9", langs: ["zh"], cover: "meet-09/gen-08",
+    summary: "Belajar nama benda di sekitar kelas dan cara bertanya “ini apa?”.",
+    body: [
+      "Tema minggu ini: Name of Object. Mentor menampilkan daftar benda dengan hanzi dan pinyin, lalu peserta menunjuk benda sungguhan di kelas dan menyebut namanya.",
+      "Kalimat kuncinya 这是什么？ (zhè shì shénme?), artinya “ini apa?”.",
+    ],
+    sets: [["gen", "Dokumentasi"], ["post", "Poster"]], album: "1pYDU0c6ua5plrUZX1r2IJ_rVoTUbbbRp",
+  },
+  {
+    slug: "meet-10", title: "Kelas Arab & Inggris", date: "10 Mei 2025", iso: "2025-05-10",
+    kind: "Pertemuan 10", langs: ["ar", "en"], cover: "meet-10/en-07",
+    summary: "Kata ganti bahasa Arab di papan tulis dan kelas Inggris yang paling ramai.",
+    body: [
+      "Kelas Arab membahas kata ganti orang: أنا, أنتَ, أنتِ, هو, هي, نحن. Peserta maju menulis dan membaca, lalu menyusun kalimat pendek.",
+      "Kelas Inggris jadi yang paling ramai periode ini, dengan lebih dari 130 foto di album dokumentasinya.",
+    ],
+    sets: [["ar", "Kelas Arab"], ["en", "Kelas Inggris"], ["gen", "Suasana"], ["post", "Poster"]], album: "1t8BoqRHjjhCPrHYQUrvykiVqTtDCtQ8R",
+  },
+  {
+    slug: "aurafest", title: "ELCY Shop di AURAFEST", date: "Periode 2024/2025", iso: "2025-05-20",
+    kind: "Bazar", langs: [], cover: "aurafest/post-02",
+    summary: "Booth merchandise ELCY di closing ceremony Liga Mahasiswa TUJ.",
+    body: [
+      "TUJLC membuka ELCY Shop di AURAFEST, closing ceremony Liga Mahasiswa TUJ. Harganya ramah kantong mahasiswa: Rp10.000 sampai Rp20.000.",
+      "Pembeli awal dapat stiker ELCY gratis.",
+    ],
+    sets: [["post", "Poster"]], album: "15h5JZ9h0HM69fsohpudEPUk6cE-_8zXN",
+  },
+  {
+    slug: "kedubes", title: "TUJLC Visit: Kedutaan Besar Jepang", date: "17 Juni 2025", iso: "2025-06-17",
+    kind: "Kunjungan", langs: ["ja"], cover: "kedubes/gen-05", star: true,
+    summary: "“A Cultural Bridge between Indonesia and Japan”: belajar budaya Jepang di kedutaannya langsung.",
+    body: [
+      "Kunjungan terbesar periode ini. Anggota TUJLC datang ke Kedutaan Besar Jepang di Jakarta untuk acara bertema A Cultural Bridge between Indonesia and Japan.",
+      "Ada presentasi budaya, sesi mencoba kipas dan kain tradisional, lalu foto bersama dengan bendera TUJLC. Peserta mendapat sertifikat.",
+    ],
+    sets: [["gen", "Dokumentasi"], ["post", "Poster"]], extra: "visit", album: "1mtSkRdPL94eoTo2aKlkn73YA1M2UrZEg",
+  },
+  {
+    slug: "nextgen", title: "First Meet: TUJLC Next Gen", date: "2025", iso: "2025-09-01",
+    kind: "Periode 2025/2026", langs: [], cover: "nextgen/gen-05",
+    summary: "Angkatan baru TUJLC mulai, berawal dari booth di PKKMB 2025.",
+    body: [
+      "Periode baru, nama baru: TUJLC Next Gen. Mahasiswa baru berkenalan dengan TUJLC lewat PKKMB 2025 Telkom University Jakarta, lalu lanjut ke pertemuan pertama.",
+      "Album lengkap acara ini berisi lebih dari 230 foto.",
+    ],
+    sets: [["gen", "Dokumentasi"]], album: "1KrIqCMFiKj5lD9mNQBY4tyXVpxhQTFB0",
+  },
+];

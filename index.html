@@ -1,13 +1,180 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TUJLC Website</title>
-    <link rel="icon" type="image/x-icon" href="./src/assets/favicon-32x32.png">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TUJLC · Telkom University Language Club</title>
+<meta name="description" content="TUJLC, klub bahasa Telkom University Jakarta. Kumpul tiap Sabtu, belajar Inggris, Jepang, Mandarin, Prancis, dan Arab bareng teman, dari nol sampai lancar.">
+<meta name="theme-color" content="#FFD315">
+<link rel="icon" href="assets/logo-outline.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+JP:wght@700&family=Noto+Sans+SC:wght@700&family=Noto+Naskh+Arabic:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261108d">
+<link rel="stylesheet" href="components.css?v=20261108d">
+</head>
+<body data-page="home">
+<main id="main">
+  <section class="hero">
+    <div class="hero__copy">
+      <p class="hero__hello" aria-live="polite"><span id="hello">Halo!</span></p>
+      <h1 class="display">Belajar bahasa<br>tanpa takut <mark>salah</mark>.</h1>
+      <p class="lead">TUJLC adalah klub bahasa Telkom University Jakarta. Tiap Sabtu kami kumpul, ngobrol pakai bahasa yang lagi dipelajari, dan ketawa kalau ada yang salah ucap. Yang baru mulai dan yang sudah lancar duduk di kelas yang sama.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#bahasa">Pilih bahasamu</a>
+        <a class="btn btn--ghost" href="#event">Lihat event kami</a>
+      </div>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <div class="blob"></div>
+      <img class="hero__elcy" src="assets/elcy-umbrella.webp" alt="" width="657" height="900">
+      <span class="bubble b1" lang="ja">こんにちは</span>
+      <span class="bubble b2" lang="fr">Bonjour</span>
+      <span class="bubble b3" lang="ar" dir="rtl">مرحبا</span>
+      <span class="bubble b4" lang="zh">你好</span>
+      <span class="bubble b5" lang="en">Hello</span>
+    </div>
+    <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 90 480 0 720 40 S 1200 80 1440 30 V80 H0Z"/></svg>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee__track" id="marquee"></div></div>
+
+  <section class="section" id="angka">
+    <ul class="stats stats--4">
+      <li data-reveal><b>11</b><span>pertemuan di periode 2024/2025</span></li>
+      <li data-reveal><b>5</b><span>bahasa yang sudah diajarkan</span></li>
+      <li data-reveal><b>1</b><span>kunjungan ke Kedubes Jepang</span></li>
+      <li data-reveal><b>1</b><span>tamu penutur asli Prancis</span></li>
+    </ul>
+  </section>
+
+  <section class="about section" id="tentang">
+    <div class="about__img sticker tilt-l" data-reveal>
+      <img src="assets/elcy-window.webp" alt="ELCY, maskot TUJLC, melambai dari balik jendela" width="870" height="773" loading="lazy">
+    </div>
+    <div class="about__copy" data-reveal>
+      <p class="eyebrow">Tentang kami</p>
+      <h2 class="display display--md">Klub bahasa yang ramai, bukan kelas yang tegang.</h2>
+      <p>Bahasa nempel kalau dipakai. Jadi tiap Sabtu isinya praktik: menulis di papan, presentasi kecil di depan teman, main tebak kata, dan sesekali tamu penutur asli. Beberapa kelas jalan bersamaan, kamu tinggal pilih ruangan.</p>
+      <blockquote class="vision">
+        <p>Membawa TUJLC dengan konten yang inklusif untuk pemula maupun yang sudah pro dalam berbahasa, edukatif, dan membawa tawa ke audiens.</p>
+        <cite>Visi TUJLC</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section" id="bahasa">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Kelas bahasa</p>
+      <h2 class="display display--md">Lima bahasa, satu Sabtu.</h2>
+      <p class="muted">Klik salah satu untuk lihat foto kelasnya, cara kami mengajar, dan mini pelajaran yang bisa kamu coba sekarang.</p>
+    </div>
+    <div class="langgrid" id="langgrid"></div>
+  </section>
+
+  <section class="section events" id="event">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Event & dokumentasi</p>
+      <h2 class="display display--md">Semua yang sudah kami jalani.</h2>
+      <p class="muted">Klik kartu untuk buka cerita dan foto-foto lengkapnya.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Saring event">
+      <button class="chip is-on" data-f="all">Semua</button>
+      <button class="chip" data-f="en">Inggris</button>
+      <button class="chip" data-f="ja">Jepang</button>
+      <button class="chip" data-f="zh">Mandarin</button>
+      <button class="chip" data-f="fr">Prancis</button>
+      <button class="chip" data-f="ar">Arab</button>
+      <button class="chip" data-f="other">Lainnya</button>
+    </div>
+    <div class="evgrid" id="evgrid"></div>
+  </section>
+
+  <section class="game section" id="tebak">
+    <div class="game__box" data-reveal>
+      <div>
+        <p class="eyebrow">Main sebentar</p>
+        <h2 class="display display--md">Tebak bahasanya.</h2>
+        <p>Semua kata di bawah pernah ditulis di papan tulis TUJLC. Bisa tebak dari bahasa apa?</p>
+        <p class="game__score" aria-live="polite">Skor: <b id="score">0</b> / <span id="total">0</span></p>
+      </div>
+      <div class="game__card">
+        <p class="game__word" id="gword">…</p>
+        <p class="game__hint" id="ghint"></p>
+        <div class="game__opts" id="gopts"></div>
+        <p class="game__msg" id="gmsg" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="merch section" id="merch">
+    <div class="merch__copy" data-reveal>
+      <p class="eyebrow">ELCY Shop</p>
+      <h2 class="display display--md">ELCY bisa kamu bawa pulang.</h2>
+      <p>Stiker, pin, lanyard, dan gantungan kunci ELCY dijual di bazar kampus, salah satunya AURAFEST. Harganya Rp10.000 sampai Rp20.000, dan pembeli awal dapat stiker gratis.</p>
+      <a class="btn" href="event.html?e=aurafest">Lihat ELCY Shop di AURAFEST</a>
+    </div>
+    <div class="merch__grid" data-lightbox id="merchgrid"></div>
+  </section>
+
+  <section class="section access" id="akses">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Publik & anggota</p>
+      <h2 class="display display--md">Siapa bisa lihat apa.</h2>
+    </div>
+    <div class="access__grid">
+      <div class="access__col" data-reveal>
+        <h3>Semua orang</h3>
+        <ul class="ticks">
+          <li>Cerita dan foto pilihan tiap event</li>
+          <li>Halaman tiap bahasa dan mini pelajaran</li>
+          <li>Tombol dengar pelafalan</li>
+          <li>Game tebak bahasa dan ELCY Shop</li>
+        </ul>
+      </div>
+      <div class="access__col access__col--mem" data-reveal>
+        <h3>Anggota TUJLC</h3>
+        <ul class="ticks">
+          <li>Album dokumentasi lengkap tiap pertemuan</li>
+          <li>Kartu latihan kosakata dan catatan progres</li>
+          <li>Brand kit: logo, palet warna, brand guideline</li>
+          <li>Folder Media Creative dan content plan</li>
+        </ul>
+        <a class="btn btn--ink" href="anggota.html">Masuk area anggota</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq section" id="faq">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Sering ditanya</p>
+      <h2 class="display display--md">Sebelum kamu datang.</h2>
+    </div>
+    <div class="faq__list">
+      <details data-reveal><summary>Harus sudah bisa bahasa asing?</summary><p>Nggak. Visi kami memang untuk pemula dan yang sudah pro. Kalau kamu cuma bisa bilang “hello”, itu sudah cukup buat mulai.</p></details>
+      <details data-reveal><summary>Kapan dan di mana kumpulnya?</summary><p>Periode 2024/2025 hampir selalu hari Sabtu, di ruang kelas kampus Telkom University Jakarta. Jadwal dan ruangan tiap minggu diumumkan lewat Instagram.</p></details>
+      <details data-reveal><summary>Boleh ikut lebih dari satu bahasa?</summary><p>Boleh. Biasanya dua kelas jalan di hari yang sama, jadi kamu bisa pindah ruangan di pertemuan berikutnya.</p></details>
+      <details data-reveal><summary>Ada sertifikat?</summary><p>Untuk kegiatan tertentu ada, misalnya peserta kunjungan ke Kedutaan Besar Jepang. Detailnya diumumkan per acara.</p></details>
+      <details data-reveal><summary>Kode area anggota didapat dari mana?</summary><p>Dibagikan pengurus di grup anggota setelah kamu resmi bergabung.</p></details>
+    </div>
+  </section>
+
+  <section class="join" id="gabung">
+    <img class="join__elcy" src="assets/elcy1.webp" alt="" aria-hidden="true" loading="lazy" width="900" height="791">
+    <div class="join__box" data-reveal>
+      <h2 class="display">Sabtu ini kosong?</h2>
+      <p>Datang aja ke pertemuan berikutnya. Bawa teman, bawa rasa penasaran, nggak perlu bawa kamus.</p>
+      <div class="hero__cta">
+        <a class="btn btn--ink" data-link="instagram" href="#">DM kami di Instagram</a>
+        <a class="btn btn--ghost-ink" data-link="form" href="#">Isi formulir pendaftaran</a>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="photos.js?v=20261108d" defer></script>
+<script src="data.js?v=20261108d" defer></script>
+<script src="audio.js?v=20261108d" defer></script>
+<script src="common.js?v=20261108d" defer></script>
+<script src="home.js?v=20261108d" defer></script>
+</body>
 </html>

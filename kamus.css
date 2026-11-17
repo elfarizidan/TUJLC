@@ -1,0 +1,32 @@
+/* Kamus TUJLC */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.km-today{background:var(--paper);color:var(--ink);border:3px solid #000;border-radius:22px;padding:1rem 1.2rem;box-shadow:5px 5px 0 #000}
+.km-today .eyebrow{margin-bottom:.4rem}
+.km-today__w{display:flex;align-items:center;gap:.5rem}
+.km-today__w b{font-size:2.4rem;line-height:1.1}
+.km-today p{margin:.3rem 0 0;font-weight:600}
+.km-wrap{width:var(--wrap);margin:0 auto;padding:28px 0 80px}
+.km-search{position:sticky;top:66px;z-index:15;display:grid;grid-template-columns:1fr auto auto;gap:10px;background:var(--paper);padding:10px 0}
+.km-search input,.km-search select{font:500 1.1rem var(--font);color:var(--ink);border:3px solid var(--ink);border-radius:16px;padding:.75rem 1rem;background:#fff}
+.km-search input{font-size:1.25rem;box-shadow:var(--shadow-sm)}
+.km-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin:.6rem 0 1rem}
+.km-bar p{margin:0}
+.km-bar__btns{display:flex;gap:8px;flex-wrap:wrap}
+.km-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.km-entry{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:.9rem 1rem;box-shadow:var(--shadow-sm)}
+.km-entry__head{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem}
+.km-entry h3{margin:0;font-size:1.6rem;line-height:1.2}
+.km-read{color:var(--teal-2);font-weight:600}
+.km-star{margin-left:auto;background:none;border:0;font-size:1.5rem;cursor:pointer;color:#c9a400;line-height:1}
+.km-star.is-on{color:#e0a800}
+.km-id{margin:.5rem 0 .2rem;font-weight:700;font-size:1.1rem}
+.km-id span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);font-size:.8rem;margin-right:.2rem;cursor:help}
+.km-en{margin:.2rem 0 0;color:#3d5559}
+.km-ex{margin:.5rem 0 0;padding:.5rem .7rem;background:var(--paper);border-left:4px solid var(--yellow);border-radius:8px;font-size:.95rem}
+.km-more{display:block;margin:20px auto 0}
+.km-saved{margin-top:48px}
+.km-src{margin-top:48px;background:#fff;border:2px dashed var(--ink);border-radius:16px;padding:1rem 1.2rem}
+.km-src summary{font-weight:700;cursor:pointer}
+.km-src li{margin:.3rem 0}
+@media (max-width:820px){.km-list{grid-template-columns:1fr}.km-search{grid-template-columns:1fr 1fr;top:62px}.km-search input{grid-column:1/-1}}
+.km-id--ok span{background:var(--green)}

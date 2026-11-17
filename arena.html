@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Arena Game · TUJLC</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#274045">
+<link rel="icon" href="assets/logo-outline.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261108e">
+<link rel="stylesheet" href="components.css?v=20261108e">
+<link rel="stylesheet" href="akademi.css?v=20261108e">
+<link rel="stylesheet" href="app.css?v=20261108e">
+</head>
+<body data-page="anggota">
+<main id="main">
+  <section class="ak-hero">
+    <div><p class="eyebrow">Area anggota · Arena Game</p><h1 class="display display--lg">Main sambil belajar.</h1>
+      <p class="lead">Tujuh permainan dari kosakata Akademi ELCY. Skor terbaikmu masuk papan peringkat anggota.</p></div>
+    <img src="assets/elcy-mbem.webp" alt="" aria-hidden="true" style="max-width:300px;justify-self:center">
+  </section>
+  <nav class="ak-langs" id="langs" aria-label="Pilih bahasa"></nav>
+  <section class="section">
+    <div class="arena-grid" id="games"></div>
+  </section>
+</main>
+<div class="stage" id="stage" hidden>
+  <div class="stage__top"><button class="player__x" id="sClose" aria-label="Keluar">×</button><h2 id="sTitle"></h2><div class="stage__hud" id="hud"></div></div>
+  <div class="stage__body" id="sBody"></div>
+</div>
+<script src="data.js?v=20261108e" defer></script>
+<script src="audio.js?v=20261108e" defer></script>
+<script src="akademi-data.js?v=20261108e" defer></script>
+<script src="common.js?v=20261108e" defer></script>
+<script src="arena.js?v=20261108f" defer></script>
+</body>
+</html>

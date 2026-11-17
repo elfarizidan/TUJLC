@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 .env
 
+
+# Data lokal server (jangan diunggah)
+data/
+uploads/
+__pycache__/

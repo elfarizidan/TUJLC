@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademi ELCY · TUJLC</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#274045">
+<link rel="icon" href="assets/logo-outline.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261108d">
+<link rel="stylesheet" href="components.css?v=20261108d">
+<link rel="stylesheet" href="akademi.css?v=20261108d">
+</head>
+<body data-page="anggota">
+<main id="main">
+  <section class="ak-hero">
+    <div>
+      <p class="eyebrow">Area anggota · Akademi ELCY</p>
+      <h1 class="display display--lg">Dari “halo” sampai debat.</h1>
+      <p class="lead">40 tes per bahasa dalam 6 mode, dari Pemula (A1) sampai Expert (C2). Sudah bisa? Ambil tes lompat dan langsung naik mode.</p>
+    </div>
+    <div class="ak-stats" id="akStats"></div>
+  </section>
+
+  <nav class="ak-langs" id="akLangs" aria-label="Pilih bahasa"></nav>
+
+  <nav class="ak-tabs" role="tablist" aria-label="Bagian akademi">
+    <button role="tab" data-tab="path" aria-selected="true">Jalur 40 tes</button>
+    <button role="tab" data-tab="free" aria-selected="false">Latihan kategori</button>
+    <button role="tab" data-tab="sim" aria-selected="false">Simulator</button>
+    <button role="tab" data-tab="ai" aria-selected="false">Ngobrol dengan AI</button>
+    <button role="tab" data-tab="write" aria-selected="false">Tugas tulis (buku)</button>
+    <a class="ak-tab-link" href="kamus.html">Kamus 5 bahasa ↗</a>
+  </nav>
+
+  <section class="ak-panel" id="tab-path"></section>
+  <section class="ak-panel" id="tab-free" hidden></section>
+  <section class="ak-panel" id="tab-sim" hidden></section>
+  <section class="ak-panel" id="tab-ai" hidden></section>
+  <section class="ak-panel" id="tab-write" hidden></section>
+</main>
+
+<div class="player" id="player" hidden>
+  <div class="player__top">
+    <button class="player__x" id="pClose" aria-label="Keluar dari tes">×</button>
+    <div class="player__bar"><span id="pBar"></span></div>
+    <div class="player__hearts" id="pHearts" aria-label="Nyawa"></div>
+  </div>
+  <div class="player__body" id="pBody"></div>
+  <div class="player__foot" id="pFoot">
+    <p class="player__msg" id="pMsg" aria-live="polite"></p>
+    <button class="btn btn--ink" id="pCheck" disabled>Periksa</button>
+  </div>
+</div>
+
+<script src="photos.js?v=20261108d" defer></script>
+<script src="data.js?v=20261108d" defer></script>
+<script src="audio.js?v=20261108d" defer></script>
+<script src="akademi-data.js?v=20261108d" defer></script>
+<script src="common.js?v=20261108d" defer></script>
+<script src="akademi.js?v=20261108d" defer></script>
+</body>
+</html>
