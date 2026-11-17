@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "fix-and-call"
-  }
+  },
+  "targets": {
+    "fix-and-call": {
+      "hosting": {
+        "tujlc": [
+          "tujlc"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

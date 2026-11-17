@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "tujlc",
     "public": ".",
     "ignore": [
       "firebase.json",
