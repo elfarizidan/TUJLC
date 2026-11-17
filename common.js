@@ -12,7 +12,7 @@ window.LINKS = {
 // Database online (Supabase). Isi dari Supabase > Project Settings > API: "Project URL" dan kunci "anon"/"publishable".
 // Kunci ini memang publik (aman ditaruh di web); semua aturan akses ada di supabase/schema.sql.
 // Kalau dikosongkan, web memakai server lokal tools/ai_server.py seperti dulu.
-window.SUPABASE = { url: "", key: "" };
+window.SUPABASE = { url: "https://abklccjtqzdiyybhpbkl.supabase.co", key: "sb_publishable_FBp2g31t_m1Qpx1DzffWbw_YkI8ivhI" };
 
 // Keanggotaan: daftar -> dapat kode -> masuk.
 window.TUJ = {
