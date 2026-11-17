@@ -79,12 +79,18 @@ function gate(tab = "masuk") {
 }
 
 // ---------- Dasbor ----------
+// Foto anggota bersifat privat: dari database online (Supabase) atau dari server lokal.
+async function galeri() {
+  const box = document.getElementById("faces"); if (!box) return;
+  let src = [];
+  try { src = TUJ.sb ? (await TUJ.api("/api/galeri")).fotos : Array.from({ length: 34 }, (_, i) => `assets/anggota/a${String(i + 1).padStart(2, "0")}.webp`); } catch {}
+  box.innerHTML = src.length ? src.map((s) => `<img src="${s}" alt="Anggota TUJLC" loading="lazy" data-caption="Anggota TUJLC">`).join("") : `<p class="muted">Foto belum tersedia.</p>`;
+}
 async function dash() {
   const H = await TUJ.api("/api/home");
   const me = H.me, pengurus = TUJ.isPengurus();
   const jam = new Date().getHours();
   const hari = jam < 11 ? "pagi" : jam < 15 ? "siang" : jam < 18 ? "sore" : "malam";
-  const mem = Array.from({ length: 34 }, (_, i) => `assets/anggota/a${String(i + 1).padStart(2, "0")}.webp`);
   main.innerHTML = `${me.demo ? `<div class="demo-bar">Mode tamu: kamu masuk tanpa akun. <a href="#" id="toReg">Daftar jadi anggota</a> untuk mendapat kode sendiri dan menyimpan progres.</div>` : ""}
   <section class="dash-hero">
     <div>
@@ -144,7 +150,7 @@ async function dash() {
 
   <section class="section" id="wajah">
     <div class="section__head"><p class="eyebrow">Wajah-wajah TUJLC</p><h2 class="display display--md">Foto anggota.</h2><p class="muted">Dari sesi foto anggota, 22 Februari 2025. Hanya tampil untuk anggota yang sudah masuk.</p></div>
-    <div class="faces" data-lightbox>${mem.map((s) => `<img src="${s}" alt="Anggota TUJLC" loading="lazy" data-caption="Anggota TUJLC">`).join("")}</div>
+    <div class="faces" data-lightbox id="faces"><p class="muted">Memuat foto…</p></div>
   </section>
 
   <section class="section" id="album">
@@ -184,6 +190,7 @@ async function dash() {
       <button class="btn btn--ink">Daftar sebagai pengurus</button><p class="gate__err" id="pErr" role="alert"></p>
     </form>
   </section>`}`;
+  galeri();
 
   document.getElementById("logout").onclick = () => TUJ.logout();
   document.getElementById("toReg")?.addEventListener("click", async (e) => { e.preventDefault(); try { await TUJ.api("/api/logout", {}); } catch {} location.href = "anggota.html?daftar"; });

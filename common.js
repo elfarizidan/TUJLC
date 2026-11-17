@@ -9,14 +9,39 @@ window.LINKS = {
   form: "#",
 };
 
-// Keanggotaan memakai akun di server (tools/ai_server.py + database). Daftar -> dapat kode -> masuk.
+// Database online (Supabase). Isi dari Supabase > Project Settings > API: "Project URL" dan kunci "anon"/"publishable".
+// Kunci ini memang publik (aman ditaruh di web); semua aturan akses ada di supabase/schema.sql.
+// Kalau dikosongkan, web memakai server lokal tools/ai_server.py seperti dulu.
+window.SUPABASE = { url: "", key: "" };
+
+// Keanggotaan: daftar -> dapat kode -> masuk.
 window.TUJ = {
   gate: true,
   me: null,        // {id, no_anggota, nama, role} setelah masuk
   server: false,   // true kalau server TUJLC aktif (bukan hosting statis)
   isMember() { return !!this.me; },
   isPengurus() { return this.me?.role === "pengurus"; },
+  sb: !!(window.SUPABASE?.url && window.SUPABASE?.key),  // true kalau database online (Supabase) sudah diisi
+  token() { try { return localStorage.getItem("tujlc-token"); } catch { return null; } },
+  setToken(t) { try { t ? localStorage.setItem("tujlc-token", t) : localStorage.removeItem("tujlc-token"); } catch {} },
   async api(path, body) {
+    if (this.sb) {
+      // Semua permintaan lewat satu fungsi database: public.tujlc_api (lihat supabase/schema.sql)
+      const u = new URL(path, location.href), S = window.SUPABASE;
+      const h = { "Content-Type": "application/json", apikey: S.key };
+      if (S.key.startsWith("eyJ")) h.Authorization = "Bearer " + S.key;
+      const r = await fetch(S.url.replace(/\/$/, "") + "/rest/v1/rpc/tujlc_api", { method: "POST", headers: h,
+        body: JSON.stringify({ p_token: this.token(), p_path: u.pathname, p_q: Object.fromEntries(u.searchParams), p_body: body === undefined ? null : body }) });
+      let d = {}; try { d = await r.json(); } catch {}
+      if (!r.ok) {
+        const e = new Error(d.message || `Gagal (${r.status})`); e.status = +d.details || r.status;
+        if (e.status === 401 && !/\/api\/login$/.test(u.pathname)) this.setToken(null);
+        throw e;
+      }
+      if (d && d.token) { this.setToken(d.token); delete d.token; }
+      if (u.pathname.endsWith("/api/logout")) this.setToken(null);
+      return d;
+    }
     const r = await fetch(path, body === undefined ? { cache: "no-store" } : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     let d = {}; try { d = await r.json(); } catch {}
     if (!r.ok) { const e = new Error(d.error || `Gagal (${r.status})`); e.status = r.status; throw e; }
@@ -157,11 +182,12 @@ window.revealAll = function (root = document) {
 
 // Deteksi server TUJLC + sesi anggota. Di hosting statis biasa: server=false, me=null.
 TUJ.ready = (async () => {
-  try {
-    const st = await TUJ.api("/api/status");
-    TUJ.server = !!st.db; if (st.tts) window.TUJ_TTS = true;
-    if (TUJ.server) TUJ.me = (await TUJ.api("/api/me")).me;
+  try {  // server lokal (AI, suara TTS); di Firebase tidak ada, tidak apa-apa
+    const r = await fetch("/api/status", { cache: "no-store" });
+    if (r.ok) { const st = await r.json(); TUJ.server = !!st.db; if (st.tts) window.TUJ_TTS = true; }
   } catch {}
+  if (TUJ.sb) TUJ.server = true;
+  try { if (TUJ.server) TUJ.me = (await TUJ.api("/api/me")).me; } catch {}
   const link = header.querySelector(".nav__member");
   if (TUJ.me) {
     link.classList.add("is-in");
@@ -175,7 +201,7 @@ TUJ.ready = (async () => {
 TUJ.requireMember = async (next, pengurusOnly) => {
   await TUJ.ready;
   if (!TUJ.server) {
-    document.getElementById("main").innerHTML = `<section class="section notfound"><img src="assets/elcy-raincoat.webp" alt="" width="180"><h1 class="display display--md">Area anggota butuh server TUJLC</h1><p>Jalankan <code>python tools/ai_server.py</code> lalu buka lewat alamat server tersebut.</p><a class="btn" href="index.html">Kembali ke beranda</a></section>`;
+    document.getElementById("main").innerHTML = `<section class="section notfound"><img src="assets/elcy-raincoat.webp" alt="" width="180"><h1 class="display display--md">Area anggota belum tersambung ke database</h1><p>Isi <code>window.SUPABASE</code> di <code>common.js</code>, atau jalankan <code>python tools/ai_server.py</code> di laptop.</p><a class="btn" href="index.html">Kembali ke beranda</a></section>`;
     return false;
   }
   if (!TUJ.me) { location.replace("anggota.html?next=" + encodeURIComponent(next)); return false; }

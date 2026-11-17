@@ -2,6 +2,20 @@
 
 Situs statis klub bahasa TUJLC (Telkom University Language Club). Tidak perlu database atau build.
 
+## Database online (Supabase), sejak 17 November 2026
+
+Web online (Firebase Hosting) memakai database **Supabase (Postgres)**, jadi area anggota, dasbor pengurus, Akademi, Kamus, Arena, dan game Dunia bisa dipakai tanpa server Python.
+
+- `supabase/schema.sql`: semua tabel (schema `tujlc`, tertutup dari luar) dan satu fungsi pintu `public.tujlc_api` yang mengecek login, peran pengurus, dan validasi. Isinya sama dengan aturan `tools/db.py`.
+- `common.js`: isi `window.SUPABASE = { url, key }` dengan Project URL dan kunci anon/publishable dari Supabase. Kunci ini memang publik. Kalau dikosongkan, web kembali memakai server lokal `tools/ai_server.py`.
+- `excel.js`: template dan ekspor Excel dibuat langsung di browser (ExcelJS), pengganti `tools/excel.py`.
+- `tools/supabase_setup.py seed`: membuat `data/supabase-seed.sql` (periode, pengurus, kode pengurus) dari SQLite lama. File ini rahasia dan tidak ikut ke GitHub.
+- `tools/supabase_setup.py foto`: mengunggah foto pengurus dan foto anggota ke tabel privat. Foto ini tidak lagi ada di hosting publik.
+
+Pemasangan: SQL Editor di Supabase → jalankan `supabase/schema.sql`, lalu `data/supabase-seed.sql` → isi `window.SUPABASE` → `python tools/supabase_setup.py foto` → commit & push.
+
+Catatan: tamu pengurus dimatikan di web online (data pribadi anggota). Chat AI dan penilaian buku tetap butuh `tools/ai_server.py` + API key. Proyek Supabase gratis akan dijeda kalau 7 hari tidak dipakai; buka dasbor Supabase untuk menyalakan lagi.
+
 ## Halaman
 
 | File | Isi | Akses |

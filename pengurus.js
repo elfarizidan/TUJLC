@@ -12,7 +12,7 @@ const TABS = [["ringkasan", "Ringkasan"], ["anggota", "Anggota"], ["iuran", "Kas
 
 function shell() {
   main.innerHTML = `<section class="ak-hero adm-hero"><div><p class="eyebrow">Dasbor Pengurus</p><h1 class="display display--lg">Administrasi TUJLC</h1>
-    <p class="lead">Masuk sebagai ${esc(TUJ.me.nama)}. Semua perubahan langsung tersimpan di database server.</p></div><div class="ak-stats" id="admStats"></div></section>
+    <p class="lead">Masuk sebagai ${esc(TUJ.me.nama)}. Semua perubahan langsung tersimpan di database.</p></div><div class="ak-stats" id="admStats"></div></section>
   <nav class="ak-tabs adm-tabs" role="tablist">${TABS.map(([k, n]) => `<button role="tab" data-t="${k}" aria-selected="${k === TAB}">${n}</button>`).join("")}</nav>
   <section class="ak-panel" id="pnl"></section>`;
   main.querySelectorAll("[data-t]").forEach((b) => b.onclick = () => go(b.dataset.t));
@@ -30,8 +30,8 @@ async function go(t) {
 }
 const table = (cols, rows, rowFn) => `<div class="tbl-wrap"><table class="tbl"><thead><tr>${cols.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${rows.length ? rows.map(rowFn).join("") : `<tr><td colspan="${cols.length}" class="muted">Belum ada data.</td></tr>`}</tbody></table></div>`;
 const head = (title, sub, extra = "") => `<div class="adm-head"><div><h2 class="display display--sm">${title}</h2>${sub ? `<p class="muted">${sub}</p>` : ""}</div><div class="adm-head__btns">${extra}</div></div>`;
-const xls = (key, label) => `<a class="btn btn--small" href="/api/admin/export/${key}.xlsx">${label || "Ekspor Excel"}</a>`;
-const tpl = (key, label) => `<a class="btn btn--small btn--ghost-ink" href="/api/admin/template/${key}.xlsx">${label}</a>`;
+const xls = (key, label) => `<a class="btn btn--small" href="/api/admin/export/${key}.xlsx" data-xls="${key}">${label || "Ekspor Excel"}</a>`;
+const tpl = (key, label) => `<a class="btn btn--small btn--ghost-ink" href="/api/admin/template/${key}.xlsx" data-tpl="${key}">${label}</a>`;
 function formData(f) { const o = {}; new FormData(f).forEach((v, k) => o[k] = v); f.querySelectorAll("input[type=checkbox]").forEach((c) => o[c.name] = c.checked ? 1 : 0); return o; }
 
 const VIEWS = {
@@ -47,7 +47,7 @@ const VIEWS = {
           <label>Nominal iuran kas per bulan (Rp)<input name="iuran_nominal" type="number" min="0" step="1000" value="${SUM.iuran_nominal}"></label>
           <button class="btn btn--ink btn--small">Simpan pengaturan</button></form>
         <div class="sticker"><h3>Pintasan</h3><p>Bagikan kode pengurus hanya ke pengurus baru. Anggota mendaftar sendiri di halaman Area Anggota → Daftar.</p>
-          <p class="muted small">Database tersimpan di folder <code>data/</code> server. Cadangkan folder itu secara berkala.</p></div></div>`;
+          <p class="muted small">${TUJ.sb ? "Database online di Supabase. Cadangkan berkala lewat tab Template &amp; Excel (ekspor data)." : "Database tersimpan di folder <code>data/</code> server. Cadangkan folder itu secara berkala."}</p></div></div>`;
     fSet.onsubmit = async (e) => { e.preventDefault(); await api("/api/admin/settings", formData(fSet)); go("ringkasan"); };
   },
 
@@ -192,9 +192,19 @@ const VIEWS = {
       ["absensi", "Daftar Hadir", "12 pertemuan, H/I/S/A, persentase hadir."], ["pinjam-ruang", "Peminjaman Ruang", "3 kampus + alamat, status pengajuan."]];
     const E = [["anggota", "Daftar anggota"], ["keuangan", "Buku kas (data asli)"], ["iuran", "Rekap iuran"], ["absensi", "Rekap absensi"], ["kelas", "Pendaftaran kelas"], ["events", "Jadwal & event"], ["pinjam", "Peminjaman ruang"], ["pengurus", "Kepengurusan"]];
     p.innerHTML = head("Template & ekspor Excel", "Template kosong siap isi (rumus sudah jadi), atau ekspor data asli dari database.") +
-      `<h3>Template</h3><div class="xl-grid">${T.map(([k, n, d]) => `<a class="xl" href="/api/admin/template/${k}.xlsx"><b>${n}</b><span>${d}</span><i>Unduh .xlsx</i></a>`).join("")}</div>
-       <h3 style="margin-top:28px">Ekspor data</h3><div class="xl-grid">${E.map(([k, n]) => `<a class="xl xl--data" href="/api/admin/export/${k}.xlsx"><b>${n}</b><i>Unduh .xlsx</i></a>`).join("")}</div>`;
+      `<h3>Template</h3><div class="xl-grid">${T.map(([k, n, d]) => `<a class="xl" href="/api/admin/template/${k}.xlsx" data-tpl="${k}"><b>${n}</b><span>${d}</span><i>Unduh .xlsx</i></a>`).join("")}</div>
+       <h3 style="margin-top:28px">Ekspor data</h3><div class="xl-grid">${E.map(([k, n]) => `<a class="xl xl--data" href="/api/admin/export/${k}.xlsx" data-xls="${k}"><b>${n}</b><i>Unduh .xlsx</i></a>`).join("")}</div>`;
   },
 };
+
+// Di web online (Supabase) file Excel dibuat di browser oleh excel.js
+main.addEventListener("click", async (e) => {
+  const a = e.target.closest("[data-xls],[data-tpl]");
+  if (!a || !TUJ.sb) return;
+  e.preventDefault(); a.setAttribute("aria-busy", "true");
+  try { a.dataset.xls ? await XL.export(a.dataset.xls) : await XL.template(a.dataset.tpl, SUM?.kampus); }
+  catch (er) { alert(er.message); }
+  a.removeAttribute("aria-busy");
+});
 
 TUJ.requireMember("pengurus.html", true).then((ok) => { if (ok) { shell(); go(TAB); } });
